@@ -2,6 +2,9 @@ import fs from "fs";
 import cheerio from "cheerio";
 import { exec } from "child_process";
 import fetch from "node-fetch";
+import express from "express";
+const app = express();
+const port = 3000;
 
 const commitMessage = "Automatic commit message";
 
@@ -44,4 +47,17 @@ const main = async () => {
   }
 };
 
-main();
+app.use(express.json());
+
+app.post("/webhook", (req, res) => {
+  const data = req.body;
+
+  //   console.log("Received webhook data:", data);
+  main();
+
+  res.status(200).send("Webhook received");
+});
+
+app.listen(port, () => {
+  console.log(`Server is listening on http://35.225.195.77:${port}`);
+});
