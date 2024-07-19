@@ -44,7 +44,7 @@ const main = async () => {
     // Thực hiện các lệnh Git
     await runCommand("git add .");
     await runCommand(`git commit -m "${commitMessage}"`);
-    await runCommand("git push origin main"); // Thay 'main' bằng nhánh chính của bạn nếu cần
+    await runCommand("git push origin"); // Thay 'main' bằng nhánh chính của bạn nếu cần
     console.log("Commit và push thành công!");
   } catch (error) {
     console.error("Có lỗi xảy ra:", error);
