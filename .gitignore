@@ -1,2 +1,6 @@
 node_modules/
 convert.js
+package.json
+package-lock.json
+indexRaw.html
+server.js
